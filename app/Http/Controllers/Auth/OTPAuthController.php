@@ -24,13 +24,15 @@ class OTPAuthController extends Controller
 
     public function requestOTP(Request $request)
     {
-        $request->validate(['email' => 'required|email|exists:users,email']);
-
+        $request->validate(['email' => 'required|email']);
+    
         $user = User::where('email', $request->email)->first();
-        $this->otpService->sendOTP($user);
-
-        return redirect()->route('otp.verify')->with('message', 'OTP sent to your email.');
-    }
+        if ($user) {
+            $this->otpService->sendOTP($user);
+        }
+    
+        return redirect()->route('otp.verify')->with('message', 'If this email exists, an OTP has been sent.');
+    }    
 
     public function verifyOTP(Request $request)
     {
@@ -56,6 +58,11 @@ class OTPAuthController extends Controller
         
             // Log the user in
             Auth::login($user);
+
+             // Redirect based on the user's email
+            if ($user->email === 'shoeringan@gmail.com') {
+                return redirect()->route('admin.index')->with('message', 'Logged in successfully as admin!');
+            }
         
             // Redirect to the dashboard
             return redirect()->route('home')->with('message', 'Logged in successfully!');

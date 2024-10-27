@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\OTPAuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 // Route for the home page
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
@@ -25,6 +26,10 @@ Route::get('/login', [OTPAuthController::class, 'showLoginForm'])->name('login')
 // Route to request an OTP
 Route::post('/login', [OTPAuthController::class, 'requestOTP'])->name('login.request');
 
+Route::post('/login/request', [OTPAuthController::class, 'requestOTP'])
+    ->name('login.request')
+    ->middleware('throttle:5,1'); // 5 requests per minute
+
 // Route to display the OTP verification form
 Route::get('/verify-otp', function () {
     return view('auth.verify_otp'); // Ensure this view exists
@@ -39,6 +44,9 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard'); // Ensure this view exists
     })->name('dashboard');
 });
+
+Route::get('/admin', [AdminController::class, 'index'])
+    ->name('admin.index');
 
 Route::post('/logout', function () {
     Auth::logout();

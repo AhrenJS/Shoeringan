@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
         if (Auth::check()) {
             if (Auth::user()->email === 'shoeringan@gmail.com') {
-                return redirect()->route('admin.index');
+                return view('admin.index');
             }
         }
-        return view('home', ['user' => $user]);
+        return redirect()->route('home')->with('error', 'You do not have access to this page.');
     }
 }

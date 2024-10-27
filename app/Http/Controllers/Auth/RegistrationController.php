@@ -18,7 +18,7 @@ class RegistrationController extends Controller
     {
         // Validate the request data
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/^[\p{L} ]+$/u', // Only letters and spaces
             'email' => 'required|string|email|max:255|unique:users',
         ]);
 
@@ -28,15 +28,19 @@ class RegistrationController extends Controller
                 ->withInput();
         }
 
-        // Create a new user
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            // You can add other fields here if necessary
-            // 'password' => bcrypt($request->password), // Not required for OTP system
-        ]);
+        try {
+            // Create a new user
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+        } catch (\Exception $e) {
+            // Handle exception
+            return redirect()->route('register.form')
+                ->with('error', 'Registration failed. Please try again.')
+                ->withInput();
+        }
 
-        // Redirect or perform other actions after successful registration
         return redirect()->route('login')->with('message', 'Registration successful! You can now log in.');
     }
 }
