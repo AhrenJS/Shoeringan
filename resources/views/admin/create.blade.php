@@ -124,7 +124,7 @@
         @endif
 
         <!-- Add Item Form -->
-        <form action="{{ route('admin.store') }}" method="POST">
+        <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div>
@@ -145,6 +145,12 @@
             <div>
                 <label for="quantity">Quantity</label>
                 <input type="number" name="quantity" id="quantity" value="{{ old('quantity') }}" required>
+            </div>
+
+            <!-- Image Upload -->
+            <div>
+                <label for="image">Image (Optional)</label>
+                <input type="file" name="image" id="image" accept="image/*">
             </div>
 
             <button type="submit" class="submit-btn">Add Item</button>

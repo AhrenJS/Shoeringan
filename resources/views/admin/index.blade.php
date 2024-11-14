@@ -136,6 +136,14 @@
         tbody tr:hover {
             background-color: #f9f9f9;
         }
+
+        /* Image Styling */
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -166,6 +174,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Image</th> <!-- New column for Image -->
                     <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>
@@ -176,6 +185,13 @@
             <tbody>
                 @foreach($items as $item)
                     <tr>
+                        <td>
+                            @if($item->image_path)
+                                <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}" class="item-image">
+                            @else
+                                <p>No Image</p>
+                            @endif
+                        </td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->description }}</td>
                         <td>${{ number_format($item->price, 2) }}</td>

@@ -191,6 +191,13 @@
         <!-- Display Available Items to Add to Cart -->
         @foreach($items as $item)
             <div class="item">
+                <!-- Item Image -->
+                @if($item->image_path)
+                    <img src="{{ asset('storage/' . $item->image_path) }}" alt="Item Image" style="width: 100px; height: 100px; object-fit: cover; margin-bottom: 10px;">
+                @else
+                    <p>No image available</p>
+                @endif
+
                 <h3>{{ $item->name }}</h3>
                 <p>{{ $item->description }}</p>
                 <p>${{ $item->price }}</p>

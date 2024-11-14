@@ -9,12 +9,8 @@ class Item extends Model
 {
     use HasFactory;
 
-    // Add the fields you want to allow for mass assignment
     protected $fillable = [
-        'name', 
-        'description', 
-        'price', 
-        'quantity'
+        'name', 'description', 'price', 'quantity', 'image_path'
     ];
     
     // Define the relationship to the Cart model

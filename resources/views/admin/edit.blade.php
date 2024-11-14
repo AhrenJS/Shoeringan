@@ -109,6 +109,17 @@
         .submit-btn:hover {
             background-color: #218838;
         }
+
+        /* Image Preview Styling */
+        .image-preview {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 150px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -130,7 +141,7 @@
         @endif
 
         <!-- Edit Item Form -->
-        <form action="{{ route('admin.update', $item->id) }}" method="POST">
+        <form action="{{ route('admin.update', $item->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -152,6 +163,17 @@
             <div>
                 <label for="quantity">Quantity</label>
                 <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $item->quantity) }}" required>
+            </div>
+
+            <div>
+                <label for="image">Image (Optional)</label>
+                <input type="file" name="image" id="image">
+                @if($item->image_path)
+                    <div class="image-preview">
+                        <p>Current Image:</p>
+                        <img src="{{ asset('storage/' . $item->image_path) }}" alt="Current Item Image">
+                    </div>
+                @endif
             </div>
 
             <button type="submit" class="submit-btn">Update Item</button>
