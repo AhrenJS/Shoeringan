@@ -16,10 +16,6 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/account', function () {
-    return view('account');
-});
-
 Route::get('/passwords', function () {
     return view('passwords');
 });
