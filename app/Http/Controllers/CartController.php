@@ -43,6 +43,12 @@ class CartController extends Controller
             return redirect()->route('home')->with('error', 'This item is out of stock.');
         }
 
+        $cartItem = Cart::where('user_id', $user->id)->where('item_id', $item->id)->first();
+
+        if ($cartItem) {
+            return redirect()->route('home')->with('error', 'Item already in cart.');
+        }
+
         // Add the item to the cart (if not already there, create it)
         $cartItem = Cart::firstOrCreate(
             ['user_id' => $user->id, 'item_id' => $item->id],
