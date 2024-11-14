@@ -52,8 +52,6 @@
         .promo-image {
             width: 80%;
             max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
             margin-bottom: 30px;
             animation: zoomIn 1.5s ease;
         }
