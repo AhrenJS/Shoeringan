@@ -42,7 +42,7 @@
 </head>
 <body>
     <div>
-        <img src="../Shoeringan/public/images/Error.jpg" alt="Error image">
+        <img src="../public/images/Error.jpg" alt="Error image">
         <h1>500</h1>
         <p>Oops! Something went wrong on our end. Please try again later.</p>
         <a href="{{ url('/') }}">Go to Home</a>
