@@ -3,191 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register Page</title>
-  {{-- <link rel="stylesheet" href="style.css"> --}}
+  <title>Shoeringan | Register Page</title>
   <style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            flex-direction: row;
-            margin: 0;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-        }
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        margin: 0;
+    }
 
-        /* Navigation Bar */
+    .register-form{
+        max-width: 477px;
+        margin: 90px 0px;
+    }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-right: 20px;
-            margin: 0px 30px;
-            position: relative;
-            margin-bottom: 65px;
-        }
+    .register-header{
+        font-size: 58px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 70px;
+    }
 
-        .logo{
-            width: 210px;
-            height: auto;
-        }
+    .label{
+        font-size: 22px;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 15px;
+    }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            padding-right: 220px;
-        }
+    span{
+        color: #DC6262;
+    }
 
-        .nav-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-        }
+    input[type="email"], input[type="name-input"], input[type="text"], input[type="phone-input"], input[type="date-of-birth"], input[type="date"]{
+        width: 477px;
+        height: 30px;
+        padding: 15px;
+        margin-bottom: 30px;
+        border: 1px solid black;
+    }
 
-        .nav-links a.active {
-            font-weight: bold;
-        }
+    input[type="email"]::placeholder, input[type="name-input"]::placeholder, input[type="text"]::placeholder, input[type="phone-input"]::placeholder{
+        color: #9C9C9C;
+        font-size: 18px;
+        text-align: left;
+    }
 
-        .search-bar {
-            width: 260px;
-            height: 10px;
-            padding: 10px;
-            border: none;
-            font-size: 16px;
-            color: #333;
-            background-color: #EBEDEE;
-            margin-left: 195px;
-        }
+    .sign-up{
+        margin-bottom: 35px;
+    }
 
-        .magnifying-glass{
-            color: black;
-            width: 24px;
-            height: 24px;
-            margin-left: 10px;
-        }
+    .no-account{
+        color: #B3B3B3;
+        font-size: 16px;
+        padding-right: 180px;
+    }
 
-        .user, .bag{
-            display: flex;
-            align-items: center;
-            color: black;
-            width: 24px;
-            height: 24px;
-            margin-left: 20px;
-            cursor: pointer;
-        }
+    .sign-up-link a{
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
-        /* Main */
+    .sign-up-link a:hover{
+        text-decoration: none;
+    }
 
-        .header{
-            font-size: 40px;
-            font-style: italic;
-            font-weight: bold;
-            padding-left: 80px;
-        }
+    .gender-opt{
+        margin-bottom: 30px;
+    }
 
-        .products{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0px 80px;
-            justify-items: center;
-        }
+    .gender{
+        font-size: 20px;
+    }
 
-        .product{
-            text-align: center;
-            padding-bottom: 50px;
-        }
+    .send-button{
+        background-color: black;
+        font-weight: bold;
+        width: 146px;
+        height: 54px;
+        display: flex;
+        padding: 15px;
+        border: none;
+        cursor: pointer;
+        margin-top: 40px;
+        margin-bottom: 50px;
+        text-align: left;
+    }
 
-        .product img{
-            width: 100%;
-            height: auto;
-            max-width: 300px;
-        }
+    .submit-button{
+        background-color: black;
+        font-weight: bold;
+        width: 163px;
+        height: 54px;
+        display: flex;
+        padding: 15px;
+        border: none;
+        cursor: pointer;
+        margin-top: 40px;
+        margin-bottom: 50px;
+        text-align: left;
+    }
 
-        .name{
-            color: black;
-            margin-top: 10px;
-            font-size: 14px;
-            text-align: left;
-        }
-
-        .price{
-            color: black;
-            font-size: 13px;
-            text-align: left;
-        }
-
-        /* Footer */
-
-        footer{
-            background-color: black;
-            color: white;
-            padding: 60px 0px 60px 200px;
-            margin-top: 150px;
-        }
-
-        .extra-info{
-            display: flex;
-            align-items: flex-start;
-        }
-
-        section{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-right: 135px;
-            font-size: 16px;
-        }
-
-        .label{
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .socials {
-            display: flex;
-        }
-
-        .content{
-            margin-bottom: 20px;
-        }
-
-        .content a{
-            color: white;
-            text-decoration: none;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .content a:hover{
-            text-decoration: underline;
-        }
-
-        /* Privacy Policy and Terms Conditions */
-
-        .credit{
-            background-color: #1E1E1E;
-            color: #9A9A9A;
-            padding: 15px 0px 15px 400px;
-            text-align: center;
-            font-size: 12px;
-            bottom: 0;
-        }
-
-        .footer-content a{
-            color: #9A9A9A;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer-content a:hover{
-            text-decoration: underline;
-        }
-
-        .footer-content span{
-            display: inline-block;
-            margin-left: 15px;
-        }
+    .send-button .text, .submit-button .text{
+        color: white;
+        font-size: 22px;
+    }
   </style>
 </head>
 
@@ -228,25 +151,10 @@
         <input type="email" class="email" name="email" placeholder="Email" aria-label="email" required>
       </div>
 
-      <div class="password-input">
-        <header class="label">Password <span>*</span></header>
-        <input type="password" class="password" name="password" placeholder="Password" aria-label="password" required>
-        <br>
-        <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm Password" aria-label="password" required>
-      </div>
-
       <button class="submit-button">
         <span class="text">SUBMIT</span>
-        <img class="arrow-right" src="/images/arrow-right.svg" />
       </button>
     </form>
-
-    <div class="or">OR</div>
-
-    <button class="google-button">
-      <span class="text">Google</span>
-      <img class="google-logo" src="/images/google-logo.svg" />
-    </button> 
   </div>
 </body>
 </html>
