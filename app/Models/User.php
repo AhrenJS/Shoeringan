@@ -15,4 +15,9 @@ class User extends Authenticatable
         'otp',
         'otp_expires_at',
     ];
+    
+    public function cartItems()
+    {
+        return $this->hasMany(Cart::class); // Assuming Cart model is used for storing cart items
+    }
 }
