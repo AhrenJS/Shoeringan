@@ -42,7 +42,7 @@
 </head>
 <body>
     <div>
-        <img src="../public/images/Error.jpg" alt="Error image">
+        <img src="../Shoeringan/public/images/Error.jpg" alt="Error image">
         <h1>404</h1>
         <p>Oops! The page you are looking for cannot be found.</p>
         <a href="{{ url('/') }}">Go to Home</a>
