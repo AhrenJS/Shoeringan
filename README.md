@@ -8,9 +8,3 @@ For local hosting:
 2. Open the site using Apache and access the database through http://localhost/phpmyadmin/ in your browser.
 3. Install composer and run "composer install" in the project directory.
 4. Run the Laravel migrations.
-
-For local hosting:
-1. Install XAMPP to start Apache and MySQL services.
-2. Open the site using Apache and access the database through http://localhost/phpmyadmin/ in your browser.
-3. Install composer and run "composer install" in the project directory.
-4. Run the Laravel migrations.
