@@ -37,7 +37,3 @@ For local hosting:
 ## Tech Stack
 - **Laravel**
 - **MySQL**
-
----
-
-**Shoeringan** – Where style meets convenience!
