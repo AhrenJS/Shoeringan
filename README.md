@@ -1,4 +1,4 @@
-Welcome to **Shoeringan**, a modern and secure shoe store website designed for simplicity and efficiency. Whether you're a shoe enthusiast or a casual shopper, Shoeringan offers a hassle-free experience with advanced features tailored to meet your needs. This site is publicly hosted at http://shoeringan.42web.io/
+Welcome to the Penetration Testing Website of **Shoeringan**, a modern shoe store website designed for simplicity and efficiency. Whether you're a shoe enthusiast or a casual shopper, Shoeringan offers a hassle-free experience with advanced features tailored to meet your needs. This site is publicly hosted at http://shoeringan.42web.io/
 
 For local hosting:
 1. Download this repository or download the .zip file from https://drive.google.com/file/d/1y00pAJzhfH1OzIiqhsnoWQHdqP1iEsUg/view?usp=sharing.
